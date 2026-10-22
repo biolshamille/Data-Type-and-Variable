@@ -1,0 +1,35 @@
+public class OverflowReferenceInvestigator {
+    public static void main(String[] args) {
+
+        byte number = 127;
+        number++;
+
+        System.out.println("=== PRIMITIVE OVERFLOW ===");
+        System.out.println("After increment: " + number);
+
+        String text1 = new String("Hello Java");
+        String text2 = new String("Hello Java");
+        String text3 = "Hello Java";
+
+        System.out.println("\n=== STRING COMPARISON ===");
+
+        System.out.println("text1 == text2: " + (text1 == text2));
+        System.out.println("text1 == text3: " + (text1 == text3));
+        System.out.println("text2 == text3: " + (text2 == text3));
+
+        System.out.println("text1.equals(text2): " + text1.equals(text2));
+        System.out.println("text1.equals(text3): " + text1.equals(text3));
+        System.out.println("text2.equals(text3): " + text2.equals(text3));
+
+        int[] firstArray = {10, 20, 30};
+        int[] secondArray = firstArray;
+
+        System.out.println("\n=== SHARED ARRAY REFERENCE ===");
+        System.out.println("Before modification: " + firstArray[0]);
+
+        secondArray[0] = 99;
+
+        System.out.println("After modifying secondArray: " + firstArray[0]);
+        System.out.println("Second array value: " + secondArray[0]);
+    }
+}
